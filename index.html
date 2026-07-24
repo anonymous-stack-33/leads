@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leads Schooling System | Excellence in Education</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Vibrant & Modern Palette */
+            --brand-indigo: #1E1B4B;
+            --brand-purple: #6366F1;
+            --brand-blue: #3B82F6;
+            --brand-amber: #F59E0B;
+            --surface-light: #F8FAFC;
+            --surface-card: #FFFFFF;
+            --text-dark: #0F172A;
+            --text-muted: #64748B;
+            --whatsapp-green: #25D366;
+            
+            --radius-lg: 20px;
+            --radius-sm: 10px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-soft: 0 10px 30px -5px rgba(99, 102, 241, 0.08);
+            --shadow-hover: 0 20px 40px -10px rgba(99, 102, 241, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            color: var(--text-dark);
+            background-color: var(--surface-card);
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.12), transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.12), transparent 40%),
+                        linear-gradient(135deg, #1E1B4B 0%, #312E81 100%);
+            padding: 100px 6% 120px 6%;
+            color: #FFFFFF;
+            position: relative;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-text-box {
+            background: rgba(255, 255, 255, 0.98);
+            color: var(--text-dark);
+            padding: 48px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-hover);
+            border-top: 6px solid var(--brand-blue);
+        }
+
+        .hero-text-box h1 {
+            font-size: 3rem;
+            color: var(--brand-indigo);
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero-text-box h1 span {
+            background: linear-gradient(135deg, var(--brand-blue), var(--brand-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text-box p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .quick-info-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(16px);
+            color: #FFFFFF;
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .quick-info-card h3 {
+            color: var(--brand-amber);
+            margin-bottom: 24px;
+            font-size: 1.5rem;
+        }
+
+        .info-list-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 22px;
+        }
+
+        .info-list-item i {
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--brand-amber);
+            padding: 12px;
+            border-radius: 50%;
+            font-size: 1.1rem;
+        }
+
+        /* Facility Highlights Bar */
+        .facility-bar {
+            background: #FFFFFF;
+            padding: 24px 6%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
+            box-shadow: var(--shadow-hover);
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 50px;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .feature-tag {
+            background: var(--surface-light);
+            color: var(--brand-indigo);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 0.92rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .feature-tag:hover {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--brand-purple);
+        }
+
+        .feature-tag i {
+            color: var(--brand-blue);
+        }
+
+        /* Section Wrappers */
+        .section-wrapper {
+            padding: 100px 6%;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 60px auto;
+        }
+
+        .section-header h2 {
+            font-size: 2.4rem;
+            color: var(--brand-indigo);
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            background-color: var(--surface-light);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .price-card {
+            background: #FFFFFF;
+            padding: 44px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .price-card.featured {
+            border-color: var(--brand-purple);
+        }
+
+        .price-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .badge-popular {
+            position: absolute;
+            top: -16px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--brand-amber), #D97706);
+            color: #FFFFFF;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .price-amount {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: var(--brand-indigo);
+            font-family: 'Outfit', sans-serif;
+            margin: 16px 0;
+        }
+
+        .price-features {
+            list-style: none;
+            margin-top: 24px;
+        }
+
+        .price-features li {
+            padding: 12px 0;
+            color: var(--text-dark);
+            border-bottom: 1px solid var(--surface-light);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+        }
+
+        .price-features li i {
+            color: var(--brand-blue);
+        }
+
+        /* Form + Map Section */
+        .admission-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .glass-form {
+            background: #FFFFFF;
+            padding: 44px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--brand-indigo);
+            font-size: 0.92rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid var(--surface-light);
+            border-radius: var(--radius-sm);
+            font-size: 0.95rem;
+            background-color: var(--surface-light);
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--brand-purple);
+            background-color: #FFFFFF;
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366, #12B04B);
+            color: #FFFFFF;
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-weight: 800;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45);
+        }
+
+        .map-box {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            height: 100%;
+            min-height: 420px;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        /* Floating Contact Button */
+        .float-contact {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #25D366, #12B04B);
+            color: #FFFFFF;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            text-decoration: none;
+            z-index: 999;
+            transition: var(--transition);
+        }
+
+        .float-contact:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--brand-indigo);
+            color: #FFFFFF;
+            text-align: center;
+            padding: 40px 6%;
+            font-size: 0.95rem;
+            border-top: 4px solid var(--brand-purple);
+        }
+
+        @media (max-width: 900px) {
+            .hero-grid, .admission-container { grid-template-columns: 1fr; }
+            .hero-text-box h1 { font-size: 2.3rem; }
+            .facility-bar { border-radius: var(--radius-lg); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Split Hero Section -->
+    <section class="hero-section" id="about">
+        <div class="hero-grid">
+            <div class="hero-text-box">
+                <h1>Building a Strong Academic Foundation at <span>Leads</span></h1>
+                <p>Welcome to Leads Schooling System, where we nurture modern skills, academic rigor, and inclusive values in the heart of Gulshan-e-Iqbal.</p>
+                <a href="https://wa.me/923350263253" target="_blank" class="btn-whatsapp" style="display: inline-flex; width: auto; padding: 14px 28px;"><i class="fab fa-whatsapp"></i> Chat with Admissions</a>
+            </div>
+
+            <div class="quick-info-card">
+                <h3><i class="fas fa-clock"></i> Campus Hours</h3>
+                <div class="info-list-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <div>
+                        <strong>Mon – Sat</strong>
+                        <p style="font-size: 0.95rem; color: rgba(255,255,255,0.8);">7:30 AM – 2:30 PM</p>
+                    </div>
+                </div>
+                <div class="info-list-item">
+                    <i class="fas fa-calendar-times"></i>
+                    <div>
+                        <strong>Sunday</strong>
+                        <p style="font-size: 0.95rem; color: rgba(255,255,255,0.8);">Closed</p>
+                    </div>
+                </div>
+                <div class="info-list-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <strong>Direct Contact</strong>
+                        <p style="font-size: 0.95rem; color: rgba(255,255,255,0.8);">0335-0263253</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facility Highlights Bar -->
+    <div class="facility-bar">
+        <div class="feature-tag"><i class="fas fa-wheelchair"></i> Wheelchair Accessible</div>
+        <div class="feature-tag"><i class="fas fa-parking"></i> Free Parking Lot & Garage</div>
+        <div class="feature-tag"><i class="fas fa-restroom"></i> Gender-Neutral Restroom</div>
+        <div class="feature-tag"><i class="fas fa-laptop-house"></i> Onsite Interactive Learning</div>
+    </div>
+
+    <!-- Fee Structure Section -->
+    <section class="section-wrapper pricing-section" id="fees">
+        <div class="section-header">
+            <h2>Transparent Fee Structure</h2>
+            <p>Simple, accessible, and high-quality educational plans for your children.</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="price-card featured">
+                <span class="badge-popular">Most Popular</span>
+                <h3>Monthly Tuition Fee</h3>
+                <div class="price-amount">PKR 6,000 <span style="font-size: 1rem; color: var(--text-muted); font-weight: 500;">/ mo</span></div>
+                <ul class="price-features">
+                    <li><i class="fas fa-check-circle"></i> Standard Academic Curriculum</li>
+                    <li><i class="fas fa-check-circle"></i> Complete Campus Facility Access</li>
+                    <li><i class="fas fa-check-circle"></i> Experienced & Dedicated Faculty</li>
+                </ul>
+            </div>
+
+            <div class="price-card">
+                <h3>Admission Fee</h3>
+                <div class="price-amount">PKR 30,000 <span style="font-size: 1rem; color: var(--text-muted); font-weight: 500;">(One-Time)</span></div>
+                <ul class="price-features">
+                    <li><i class="fas fa-check-circle"></i> Student Registration & ID</li>
+                    <li><i class="fas fa-check-circle"></i> Orientation & Welcome Material</li>
+                    <li><i class="fas fa-check-circle"></i> Administrative Setup</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admission & Google Map Section -->
+    <section class="section-wrapper" id="admission">
+        <div class="section-header">
+            <h2>Admissions & Location</h2>
+            <p>Apply directly online or find our campus map below.</p>
+        </div>
+
+        <div class="admission-container">
+            <!-- Form -->
+            <div class="glass-form">
+                <h3 style="margin-bottom: 24px; color: var(--brand-indigo); font-size: 1.4rem;"><i class="fas fa-edit" style="color: var(--brand-blue);"></i> Admission Inquiry</h3>
+                <form id="schoolForm">
+                    <div class="form-group">
+                        <label>Student Full Name</label>
+                        <input type="text" class="form-control" id="sName" placeholder="Enter student name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Parent / Guardian Name</label>
+                        <input type="text" class="form-control" id="pName" placeholder="Enter parent name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone / WhatsApp Number</label>
+                        <input type="tel" class="form-control" id="pPhone" placeholder="03XXXXXXXXX" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Select Grade</label>
+                        <select class="form-control" id="pGrade" required>
+                            <option value="">Choose Class</option>
+                            <option value="Playgroup / Nursery">Playgroup / Nursery</option>
+                            <option value="Primary Class">Primary Class</option>
+                            <option value="Secondary Class">Secondary Class</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Send via WhatsApp</button>
+                </form>
+            </div>
+
+            <!-- Google Map -->
+            <div id="location">
+                <div class="map-box">
+                    <iframe 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0; min-height: 420px;" 
+                        loading="lazy" 
+                        allowfullscreen 
+                        src="https://maps.google.com/maps?q=R47-48,%20near%20Sindbad,%20Block%2010%20Gulshan-e-Iqbal,%20Karachi&t=&z=16&ie=UTF8&iwloc=&output=embed">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Contact Button -->
+    <a href="https://wa.me/923350263253" class="float-contact" target="_blank" title="Contact Us">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Leads Schooling System. R47-48, near Sindbad, Block 10 Gulshan-e-Iqbal, Karachi.</p>
+    </footer>
+
+    <script>
+        document.getElementById('schoolForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const student = document.getElementById('sName').value;
+            const parent = document.getElementById('pName').value;
+            const phone = document.getElementById('pPhone').value;
+            const grade = document.getElementById('pGrade').value;
+
+            const phoneNo = '923350263253';
+
+            let msg = `*LEADS SCHOOLING SYSTEM - ADMISSION INQUIRY*%0A%0A`;
+            msg += `*Student:* ${encodeURIComponent(student)}%0A`;
+            msg += `*Parent:* ${encodeURIComponent(parent)}%0A`;
+            msg += `*Contact:* ${encodeURIComponent(phone)}%0A`;
+            msg += `*Grade:* ${encodeURIComponent(grade)}`;
+
+            window.open(`https://wa.me/${phoneNo}?text=${msg}`, '_blank');
+        });
+    </script>
+</body>
+</html>
